@@ -12,7 +12,9 @@ const TopicGrid = ({ topics, onTopicSelect }: TopicGridProps) => {
   return (
     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
       {topics.map((topic) => {
-        const IconComponent = Icons[topic.icon as keyof typeof Icons];
+        // Explicitly type the icon component
+        const IconComponent = (Icons as Record<string, React.FC>)[topic.icon];
+        
         return (
           <motion.div
             key={topic.id}
@@ -23,7 +25,7 @@ const TopicGrid = ({ topics, onTopicSelect }: TopicGridProps) => {
           >
             <div className={`relative overflow-hidden rounded-xl shadow-lg backdrop-blur-sm bg-white/90 p-6 h-48 flex flex-col justify-between transition-all duration-300 hover:shadow-xl`}>
               <div className="absolute top-0 right-0 w-32 h-32 -mr-8 -mt-8 opacity-10">
-                {IconComponent && <IconComponent size={128} />}
+                {IconComponent && <IconComponent />}
               </div>
               <div className="relative">
                 <div className={`inline-flex items-center justify-center p-2 rounded-lg ${topic.color} bg-opacity-10`}>
