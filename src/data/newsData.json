@@ -1,0 +1,85 @@
+
+{
+  "topics": [
+    {
+      "id": "tech",
+      "title": "Technology",
+      "icon": "Laptop",
+      "color": "bg-blue-500",
+      "subtopics": [
+        {
+          "id": "ai",
+          "title": "Artificial Intelligence",
+          "stories": [
+            {
+              "id": "ai-1",
+              "title": "New AI Breakthrough in Medical Research",
+              "summary": "Scientists develop AI system that predicts protein structures",
+              "tags": ["research", "medical", "innovation"]
+            }
+          ]
+        },
+        {
+          "id": "web",
+          "title": "Web Development",
+          "stories": [
+            {
+              "id": "web-1",
+              "title": "The Rise of Web Components",
+              "summary": "How web components are changing frontend development",
+              "tags": ["frontend", "development", "web"]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "science",
+      "title": "Science",
+      "icon": "Flask",
+      "color": "bg-green-500",
+      "subtopics": [
+        {
+          "id": "physics",
+          "title": "Physics",
+          "stories": [
+            {
+              "id": "physics-1",
+              "title": "Quantum Computing Milestone",
+              "summary": "Researchers achieve quantum supremacy",
+              "tags": ["quantum", "research", "breakthrough"]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "business",
+      "title": "Business",
+      "icon": "Briefcase",
+      "color": "bg-purple-500",
+      "subtopics": []
+    },
+    {
+      "id": "health",
+      "title": "Health",
+      "icon": "Heart",
+      "color": "bg-red-500",
+      "subtopics": []
+    },
+    {
+      "id": "environment",
+      "title": "Environment",
+      "icon": "Leaf",
+      "color": "bg-emerald-500",
+      "subtopics": []
+    },
+    {
+      "id": "culture",
+      "title": "Culture",
+      "icon": "Theater",
+      "color": "bg-yellow-500",
+      "subtopics": []
+    }
+  ]
+}
