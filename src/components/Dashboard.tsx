@@ -6,7 +6,7 @@ import TopicGrid from './TopicGrid';
 import SubtopicList from './SubtopicList';
 import NewsList from './NewsList';
 import TagFilter from './TagFilter';
-import { ChevronRight } from 'lucide-react';
+import { ChevronRight, Home } from 'lucide-react';
 
 export type Topic = (typeof newsData.topics)[0];
 export type Subtopic = Topic['subtopics'][0];
@@ -26,37 +26,40 @@ const Dashboard = () => {
     )
   );
 
-  const handleBack = () => {
-    if (selectedSubtopic) {
-      setSelectedSubtopic(null);
-    } else if (selectedTopic) {
-      setSelectedTopic(null);
-    }
-  };
-
   return (
     <div className="min-h-screen bg-gradient-to-br from-gray-50 to-gray-100 p-6">
       <div className="max-w-7xl mx-auto space-y-6">
-        {/* Navigation */}
-        <nav className="flex items-center space-x-2 text-sm text-gray-600">
+        {/* Navigation Breadcrumbs */}
+        <nav className="flex items-center space-x-2 text-sm">
           <button
-            onClick={handleBack}
-            className={`hover:text-gray-900 transition-colors ${
-              !selectedTopic && !selectedSubtopic ? 'invisible' : ''
-            }`}
+            onClick={() => {
+              setSelectedTopic(null);
+              setSelectedSubtopic(null);
+            }}
+            className="flex items-center px-3 py-2 text-gray-600 hover:text-gray-900 hover:bg-white/50 rounded-lg transition-all duration-200"
           >
-            Back
+            <Home className="w-4 h-4 mr-2" />
+            Topics
           </button>
+
           {selectedTopic && (
             <>
-              <ChevronRight className="w-4 h-4" />
-              <span>{selectedTopic.title}</span>
+              <ChevronRight className="w-4 h-4 text-gray-400" />
+              <button
+                onClick={() => setSelectedSubtopic(null)}
+                className="px-3 py-2 text-gray-600 hover:text-gray-900 hover:bg-white/50 rounded-lg transition-all duration-200"
+              >
+                {selectedTopic.title}
+              </button>
             </>
           )}
+
           {selectedSubtopic && (
             <>
-              <ChevronRight className="w-4 h-4" />
-              <span>{selectedSubtopic.title}</span>
+              <ChevronRight className="w-4 h-4 text-gray-400" />
+              <span className="px-3 py-2 text-gray-900 bg-white/50 rounded-lg">
+                {selectedSubtopic.title}
+              </span>
             </>
           )}
         </nav>
